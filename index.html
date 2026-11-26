@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Веб-сайт | Портфолио & Калькулятор</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-accent">&lt;/&gt;</span> MyWebsite
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#calculator" class="nav-link">Калькулятор</a>
+                <a href="#projects" class="nav-link">Проекты</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Сменить тему">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="burger-btn" id="burger-btn" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный экран (Hero) -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <div class="badge">👋 Интерактивный веб-сайт</div>
+                <h1 class="hero-title">
+                    Создаю современные <br>
+                    <span class="gradient-text">цифровые решения</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Рассчитайте стоимость своего проекта в онлайн-калькуляторе или ознакомьтесь с примерами выполненных работ.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary">Рассчитать стоимость</a>
+                    <a href="#projects" class="btn btn-secondary">Смотреть работы</a>
+                </div>
+            </div>
+            <div class="hero-bg-glow"></div>
+        </section>
+
+        <!-- Обо мне / Преимущества -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Обо мне</span>
+                    <h2 class="section-title">Коротко о главном</h2>
+                    <p class="section-subtitle">Что отличает подход к разработке и проектам</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Высокая скорость</h3>
+                        <p>Оптимизированный чистый код без тяжелых библиотек гарантирует мгновенную загрузку страниц.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">📱</div>
+                        <h3>Адаптивность</h3>
+                        <p>Идеально выглядит на всех типах устройств: смартфонах, планшетах и широкоформатных экранах.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">🎛️</div>
+                        <h3>Интерактивная логика</h3>
+                        <p>Динамические фильтры, расчёт стоимости в реальном времени и работа с локальным хранилищем.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Услуги -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Услуги</span>
+                    <h2 class="section-title">Чем я могу помочь</h2>
+                </div>
+
+                <div class="services-list">
+                    <div class="service-item">
+                        <span class="service-num">01</span>
+                        <div class="service-info">
+                            <h3>Разработка сайтов и лендингов</h3>
+                            <p>Создание продающих страниц и корпоративных сайтов под ключ с высокой конверсией.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-num">02</span>
+                        <div class="service-info">
+                            <h3>Веб-приложения и сервисы</h3>
+                            <p>Индивидуальная разработка личных кабинетов, калькуляторов и сложных интерфейсов.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-num">03</span>
+                        <div class="service-info">
+                            <h3>UI/UX Дизайн & Оптимизация</h3>
+                            <p>Проектирование удобной структуры, быстрая загрузка и базовая SEO-подготовка.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СТОИМОСТИ -->
+        <section id="calculator" class="calc-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Онлайн-расчёт</span>
+                    <h2 class="section-title">Калькулятор проекта</h2>
+                    <p class="section-subtitle">Выберите параметры вашего сайта и получите мгновенный предварительный расчет</p>
+                </div>
+
+                <div class="calc-wrapper">
+                    <div class="calc-form">
+                        <!-- Шаг 1: Тип проекта -->
+                        <div class="calc-group">
+                            <label class="calc-label">1. Тип проекта</label>
+                            <div class="calc-radio-grid">
+                                <label class="radio-card active">
+                                    <input type="radio" name="projectType" value="landing" data-price="15000" data-days="3" checked>
+                                    <span class="radio-title">Лендинг</span>
+                                    <span class="radio-desc">Одностраничный промо-сайт</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="projectType" value="corporate" data-price="35000" data-days="7">
+                                    <span class="radio-title">Корпоративный</span>
+                                    <span class="radio-desc">Сайт компании с разделами</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="projectType" value="ecommerce" data-price="60000" data-days="14">
+                                    <span class="radio-title">Интернет-магазин</span>
+                                    <span class="radio-desc">Каталог товаров и корзина</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="projectType" value="webapp" data-price="85000" data-days="21">
+                                    <span class="radio-title">Веб-сервис</span>
+                                    <span class="radio-desc">Сложная логика и кабинет</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 2: Количество страниц -->
+                        <div class="calc-group">
+                            <div class="slider-header">
+                                <label class="calc-label" for="page-range">2. Количество страниц / экранов</label>
+                                <span class="range-badge"><strong id="page-count-val">3</strong> стр.</span>
+                            </div>
+                            <input type="range" id="page-range" min="1" max="15" value="3" class="calc-slider">
+                            <div class="slider-ticks">
+                                <span>1 стр.</span>
+                                <span>5 стр.</span>
+                                <span>10 стр.</span>
+                                <span>15 стр.</span>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 3: Дополнительные опции -->
+                        <div class="calc-group">
+                            <label class="calc-label">3. Дополнительные опции</label>
+                            <div class="calc-checkbox-list">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" id="opt-design" data-price="12000" data-days="2">
+                                    <span class="custom-checkbox"></span>
+                                    <div class="checkbox-info">
+                                        <span class="checkbox-name">Индивидуальный UI/UX дизайн в Figma</span>
+                                        <span class="checkbox-meta">+12 000 ₽ • +2 дня</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" id="opt-seo" data-price="8000" data-days="1">
+                                    <span class="custom-checkbox"></span>
+                                    <div class="checkbox-info">
+                                        <span class="checkbox-name">SEO-оптимизация & Подключение аналитики</span>
+                                        <span class="checkbox-meta">+8 000 ₽ • +1 день</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" id="opt-pay" data-price="15000" data-days="3">
+                                    <span class="custom-checkbox"></span>
+                                    <div class="checkbox-info">
+                                        <span class="checkbox-name">Интеграция онлайн-оплаты и CRM</span>
+                                        <span class="checkbox-meta">+15 000 ₽ • +3 дня</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" id="opt-urgent" data-urgent="true">
+                                    <span class="custom-checkbox"></span>
+                                    <div class="checkbox-info">
+                                        <span class="checkbox-name">🚀 Срочный запуск (сокращает срок на 40%)</span>
+                                        <span class="checkbox-meta">+25% к стоимости</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Итоговый блок калькулятора -->
+                    <div class="calc-summary">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Итог расчёта</h3>
+                            <div class="summary-item">
+                                <span class="summary-label">Ориентировочная цена:</span>
+                                <div class="summary-price-wrapper">
+                                    <span id="calc-total-price" class="summary-price">21 000</span> <span class="currency">₽</span>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Срок выполнения:</span>
+                                <div class="summary-days-wrapper">
+                                    <span id="calc-total-days" class="summary-days">4</span> <span class="days-text">раб. дня</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-breakdown" id="calc-breakdown">
+                                <!-- Заполняется динамически через JS -->
+                            </div>
+
+                            <button id="calc-apply-btn" class="btn btn-primary btn-block">
+                                Оформить заказ с этим расчетом &darr;
+                            </button>
+                            <p class="summary-note">Расчет носит предварительный характер и не является публичной офертой.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Проекты / Портфолио с фильтрацией и поиском -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Портфолио</span>
+                    <h2 class="section-title">Избранные работы</h2>
+                    <p class="section-subtitle">Фильтруйте по категориям или воспользуйтесь живым поиском</p>
+                </div>
+
+                <!-- Контролы фильтрации и поиска -->
+                <div class="portfolio-controls">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="landing">Лендинги</button>
+                        <button class="filter-btn" data-filter="webapp">Веб-сервисы</button>
+                        <button class="filter-btn" data-filter="corporate">Корпоративные</button>
+                    </div>
+
+                    <div class="search-box">
+                        <input type="text" id="project-search" placeholder="Поиск по проектам..." aria-label="Поиск по проектам">
+                        <button id="search-clear" class="search-clear-btn" aria-label="Очистить поиск">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Сетка проектов -->
+                <div class="projects-grid" id="projects-container">
+                    <article class="project-card" data-category="landing" data-id="1">
+                        <div class="project-preview project-preview-1">
+                            <span class="preview-tag">Landing Page</span>
+                            <button class="like-btn" title="Поставить лайк">
+                                <span class="like-icon">🤍</span>
+                                <span class="like-count">14</span>
+                            </button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Эко-магазин товаров</h3>
+                            <p>Сайт для бренда экологичных товаров с адаптивным каталогом и удобной корзиной.</p>
+                            <div class="project-tags">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS Grid</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <button class="btn-text open-modal-btn" data-project="1">Подробнее &rarr;</button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="webapp" data-id="2">
+                        <div class="project-preview project-preview-2">
+                            <span class="preview-tag">Web App</span>
+                            <button class="like-btn" title="Поставить лайк">
+                                <span class="like-icon">🤍</span>
+                                <span class="like-count">29</span>
+                            </button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Финансовый трекер</h3>
+                            <p>Веб-приложение для учета ежедневных расходов с наглядной визуализацией бюджета.</p>
+                            <div class="project-tags">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">LocalStorage</span>
+                            </div>
+                            <button class="btn-text open-modal-btn" data-project="2">Подробнее &rarr;</button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="corporate" data-id="3">
+                        <div class="project-preview project-preview-3">
+                            <span class="preview-tag">Corporate</span>
+                            <button class="like-btn" title="Поставить лайк">
+                                <span class="like-icon">🤍</span>
+                                <span class="like-count">8</span>
+                            </button>
+                        </div>
+                        <div class="project-details">
+                            <h3>IT Консалтинг</h3>
+                            <p>Презентабельный корпоративный сайт для команды разработчиков с блогом и кейсами.</p>
+                            <div class="project-tags">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">SCSS</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <button class="btn-text open-modal-btn" data-project="3">Подробнее &rarr;</button>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="webapp" data-id="4">
+                        <div class="project-preview project-preview-4">
+                            <span class="preview-tag">Web App</span>
+                            <button class="like-btn" title="Поставить лайк">
+                                <span class="like-icon">🤍</span>
+                                <span class="like-count">42</span>
+                            </button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Генератор резюме</h3>
+                            <p>Интерактивный конструктор резюме с экспортом в PDF и предпросмотром в реальном времени.</p>
+                            <div class="project-tags">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">PDFKit</span>
+                                <span class="tech-tag">Tailwind</span>
+                            </div>
+                            <button class="btn-text open-modal-btn" data-project="4">Подробнее &rarr;</button>
+                        </div>
+                    </article>
+                </div>
+
+                <div id="no-projects-msg" class="no-results hidden">
+                    <p>🔍 Проектов по вашему запросу не найдено</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ОТЗЫВЫ КЛИЕНТОВ (С возможностью оставить свой) -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Обратная связь</span>
+                    <h2 class="section-title">Отзывы клиентов</h2>
+                    <p class="section-subtitle">Прочитайте отзывы или оставьте свой прямо сейчас</p>
+                </div>
+
+                <div class="reviews-layout">
+                    <!-- Список отзывов -->
+                    <div class="reviews-list" id="reviews-list">
+                        <!-- Динамически заполняется из JS + LocalStorage -->
+                    </div>
+
+                    <!-- Форма добавления отзыва -->
+                    <div class="review-form-wrapper">
+                        <h3>Оставить отзыв</h3>
+                        <form id="add-review-form">
+                            <div class="form-group">
+                                <label for="review-author">Ваше имя и компания</label>
+                                <input type="text" id="review-author" placeholder="Алексей, СЕО стартапа" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Оценка</label>
+                                <div class="star-rating" id="star-rating">
+                                    <span class="star active" data-rating="1">★</span>
+                                    <span class="star active" data-rating="2">★</span>
+                                    <span class="star active" data-rating="3">★</span>
+                                    <span class="star active" data-rating="4">★</span>
+                                    <span class="star active" data-rating="5">★</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-text">Ваш отзыв</label>
+                                <textarea id="review-text" rows="3" placeholder="Расскажите о впечатлениях от работы..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-secondary btn-block">Опубликовать отзыв</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Связь</span>
+                    <h2 class="section-title">Оставьте сообщение</h2>
+                    <p class="section-subtitle">Заполните форму, и я свяжусь с вами в ближайшее время</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Электронная почта</label>
+                            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение или детали заказа</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Опишите задачу или используйте калькулятор выше..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Отправить сообщение</button>
+                    </form>
+
+                    <div id="form-feedback" class="form-feedback hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно просмотра проекта -->
+    <div id="project-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog">
+        <div class="modal-box">
+            <button class="modal-close" id="modal-close" aria-label="Закрыть">&times;</button>
+            <div class="modal-header-banner" id="modal-banner"></div>
+            <div class="modal-body">
+                <span class="preview-tag" id="modal-tag">Tag</span>
+                <h3 id="modal-title">Название проекта</h3>
+                <p id="modal-desc">Подробное описание проекта...</p>
+                
+                <div class="modal-meta">
+                    <h4>Использованные технологии:</h4>
+                    <div class="project-tags" id="modal-tech"></div>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="#contact" class="btn btn-primary" id="modal-order-btn">Заказать похожий</a>
+                    <button class="btn btn-secondary" id="modal-dismiss-btn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 MyWebsite. Все права защищены.</p>
+            <div class="footer-socials">
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+                <a href="mailto:info@example.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
