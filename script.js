@@ -599,27 +599,49 @@ function initContactForm() {
                 })
             });
 
-            const result = await response.json();
+            const result = await response.json().catch(() => ({}));
 
-            if (response.ok && result.success !== 'false') {
+            // Проверяем статус FormSubmit
+            const msg = (result.message || '').toLowerCase();
+            const isActivation = msg.includes('activation') || msg.includes('activate') || msg.includes('link');
+
+            if (isActivation) {
+                // Если форма требует однократной активации
+                feedback.className = 'form-feedback info';
+                feedback.innerHTML = `
+                    <div style="font-weight: 700; margin-bottom: 6px;">📩 Заявка сформирована!</div>
+                    <p style="margin-bottom: 6px;">Сервер FormSubmit отправил <strong>письмо активации</strong> на <code>metrazh2000@mail.ru</code>.</p>
+                    <p style="margin-bottom: 8px;">Пожалуйста, откройте почту (проверьте также папку <strong>«Спам»</strong>) и нажмите в письме кнопку <strong>«Activate Form»</strong>.</p>
+                    <small style="opacity: 0.9;">Это нужно сделать только 1 раз. После этого одного клика все последующие заявки будут приходить мгновенно!</small>
+                `;
+                feedback.classList.remove('hidden');
+                form.reset();
+            } else if (response.ok && result.success !== 'false') {
+                // Успешная отправка
                 feedback.className = 'form-feedback success';
-                feedback.innerHTML = `✅ Спасибо, <strong>${escapeHtml(nameInput.value)}</strong>! Ваша заявка успешно отправлена на <code>metrazh2000@mail.ru</code>.<br><small style="opacity: 0.85;">(Если это первая отправка, проверьте почту metrazh2000@mail.ru и подтвердите активацию письма в 1 клик)</small>`;
+                feedback.innerHTML = `✅ Спасибо, <strong>${escapeHtml(nameInput.value)}</strong>! Ваша заявка успешно отправлена на <code>metrazh2000@mail.ru</code>.`;
                 feedback.classList.remove('hidden');
                 form.reset();
             } else {
-                throw new Error(result.message || 'Не удалось отправить форму');
+                throw new Error(result.message || 'Ошибка сервиса отправки');
             }
         } catch (error) {
             feedback.className = 'form-feedback error';
-            feedback.innerHTML = `⚠️ Ошибка отправки: ${escapeHtml(error.message || 'Проверьте подключение к сети')}`;
+            const subject = encodeURIComponent(`Заявка с сайта от ${nameInput.value}`);
+            const body = encodeURIComponent(`Имя: ${nameInput.value}\nEmail: ${emailInput.value}\n\n${messageInput.value}`);
+            const mailtoUrl = `mailto:metrazh2000@mail.ru?subject=${subject}&body=${body}`;
+
+            feedback.innerHTML = `
+                <div style="margin-bottom: 8px;">⚠️ ${escapeHtml(error.message || 'Ошибка отправки формы')}</div>
+                <div style="font-size: 0.85rem; margin-bottom: 8px;">Вы можете отправить текст напрямую через вашу почту:</div>
+                <a href="${mailtoUrl}" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem; text-decoration: none; color: #fff;">
+                    ✉️ Открыть в почте и отправить
+                </a>
+            `;
             feedback.classList.remove('hidden');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-
-            setTimeout(() => {
-                feedback.classList.add('hidden');
-            }, 9000);
         }
     });
 }

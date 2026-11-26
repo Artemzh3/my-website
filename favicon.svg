@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Скругленный фон -->
+  <rect width="64" height="64" rx="16" fill="url(#grad)"/>
+  
+  <!-- Символ кода </> -->
+  <path d="M22 22 L14 32 L22 42" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M42 22 L50 32 L42 42" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="35" y1="18" x2="29" y2="46" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Акцентная светящаяся точка -->
+  <circle cx="48" cy="18" r="3.5" fill="#38bdf8"/>
+</svg>

@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой Веб-сайт | Портфолио & Калькулятор</title>
+    
+    <!-- Фавиконки сайта -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- SEO & Social Open Graph -->
+    <meta name="description" content="Современный адаптивный веб-сайт с онлайн-калькулятором стоимости, портфолио работ и отзывами.">
+    <meta property="og:title" content="Мой Веб-сайт | Портфолио & Калькулятор">
+    <meta property="og:description" content="Рассчитайте стоимость разработки сайта онлайн или закажите индивидуальный проект.">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -415,8 +428,12 @@
 
                 <div class="contact-wrapper">
                     <form id="contact-form" class="contact-form" action="https://formsubmit.co/metrazh2000@mail.ru" method="POST">
-                        <!-- Скрытое поле для защиты от спам-ботов -->
+                        <!-- Настройки FormSubmit -->
                         <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_subject" value="Новая заявка с сайта MyWebsite">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
                             <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
@@ -433,6 +450,15 @@
                     </form>
 
                     <div id="form-feedback" class="form-feedback hidden"></div>
+
+                    <!-- Прямые контакты -->
+                    <div class="direct-contacts">
+                        <span>Или свяжитесь напрямую:</span>
+                        <div class="direct-contacts-links">
+                            <a href="mailto:metrazh2000@mail.ru" class="contact-pill">✉️ metrazh2000@mail.ru</a>
+                            <a href="https://t.me" target="_blank" rel="noopener" class="contact-pill">💬 Telegram</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -466,9 +492,9 @@
         <div class="container footer-content">
             <p>&copy; 2026 MyWebsite. Все права защищены.</p>
             <div class="footer-socials">
-                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/Artemzh3/my-website" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
-                <a href="mailto:info@example.com">Email</a>
+                <a href="mailto:metrazh2000@mail.ru">metrazh2000@mail.ru</a>
             </div>
         </div>
     </footer>
