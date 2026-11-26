@@ -564,35 +564,63 @@ function initReviews() {
 }
 
 // ==========================================================================
-// 8. Обработка формы контактов
+// 8. Обработка формы контактов с реальной отправкой на почту
 // ==========================================================================
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const feedback = document.getElementById('form-feedback');
     const submitBtn = form.querySelector('.submit-btn');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
         const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка...';
 
-        setTimeout(() => {
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/metrazh2000@mail.ru', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    'Имя': nameInput.value,
+                    'Email клиента': emailInput.value,
+                    'Текст сообщения': messageInput.value,
+                    _subject: `Новая заявка с сайта от ${nameInput.value}`,
+                    _template: 'table',
+                    _captcha: 'false'
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success !== 'false') {
+                feedback.className = 'form-feedback success';
+                feedback.innerHTML = `✅ Спасибо, <strong>${escapeHtml(nameInput.value)}</strong>! Ваша заявка успешно отправлена на <code>metrazh2000@mail.ru</code>.<br><small style="opacity: 0.85;">(Если это первая отправка, проверьте почту metrazh2000@mail.ru и подтвердите активацию письма в 1 клик)</small>`;
+                feedback.classList.remove('hidden');
+                form.reset();
+            } else {
+                throw new Error(result.message || 'Не удалось отправить форму');
+            }
+        } catch (error) {
+            feedback.className = 'form-feedback error';
+            feedback.innerHTML = `⚠️ Ошибка отправки: ${escapeHtml(error.message || 'Проверьте подключение к сети')}`;
+            feedback.classList.remove('hidden');
+        } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
 
-            feedback.className = 'form-feedback success';
-            feedback.innerHTML = `Спасибо, <strong>${escapeHtml(nameInput.value)}</strong>! Ваша заявка успешно отправлена.`;
-            feedback.classList.remove('hidden');
-
-            form.reset();
-
             setTimeout(() => {
                 feedback.classList.add('hidden');
-            }, 6000);
-        }, 800);
+            }, 9000);
+        }
     });
 }
 

@@ -1088,6 +1088,18 @@ section {
     border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.form-feedback.error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+[data-theme="dark"] .form-feedback.error {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 .form-feedback.hidden,
 .hidden {
     display: none !important;
